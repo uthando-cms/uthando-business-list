@@ -1,0 +1,26 @@
+
+<?=$this->partial('uthando-admin/partial/search', [
+    'name'			=> 'business-list',
+    'searchInputs'	=> [
+        'Company' => 'company',
+    ],
+]);?>
+
+<div id="table-business-list">
+    <?=$this->partial('uthando-business-list/business-list/list', [
+        'models' => $this->models
+    ]); ?>
+</div>
+
+
+<script>
+$(document).ready(function(){
+    $('#table-business-list').dataGrid({
+        url : 'business-list/list',
+        query: { sort : 'businessListId' },
+        searchForm : $('#search-business-list'),
+        paging : 'links',
+        columnSort: true
+    });
+});
+</script>

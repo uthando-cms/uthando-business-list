@@ -1,0 +1,197 @@
+<?php
+echo $this->headScript()
+    ->appendFile($this->themePath('/assets/js/LiveEditor/scripts/innovaeditor.js'))
+    ->appendFile($this->themePath('/assets/js/LiveEditor/scripts/jquery.innovaeditor.js'))
+    ->appendFile('//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js')
+    ->appendFile($this->themePath('/assets/js/LiveEditor/scripts/common/webfont.js'));
+
+$form = $this->form;
+$routeArray = array('action' => $this->formAction);
+if (isset($this->businessListId)) $routeArray['id'] = $this->businessListId;
+?>
+<div class="row">
+    <form class="col-md-12 form form-horizontal" method="post" action="<?=$this->url('admin/business-list/edit',
+        $routeArray) ?>">
+        <fieldset>
+        <legend><?=ucwords($this->formAction); ?> Business Form:</legend>
+        <div class="row">
+            <div class="col-sm-6">
+                <fieldset>
+           	        <legend>Details</legend>
+                    <div class="form-group<?php if ($form->get('userId')->getMessages()) echo ' has-error'; ?>">
+                        <label class="col-md-4 control-label" for="userId"><?=$form->get('userId')->getLabel();
+                            ?></label>
+                        <div class="col-md-8">
+                            <?=$this->formelement($form->get('userId')->setAttribute('class', 'form-control')); ?>
+                            <span class="help-block">
+                            <?=$this->formElementErrors($form->get('userId'), [
+                                'class' => 'list-unstyled'
+                            ]); ?>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group<?php if ($form->get('company')->getMessages()) echo ' has-error'; ?>">
+                        <label class="col-md-4 control-label" for="company"><?=$form->get('company')->getLabel();?></label>
+                        <div class="col-md-8">
+                            <?=$this->formelement($form->get('company')->setAttribute('class', 'form-control')); ?>
+                            <span class="help-block">
+                            <?=$this->formElementErrors($form->get('company'), [
+                                'class' => 'list-unstyled'
+                            ]); ?>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group<?php if ($form->get('telephone')->getMessages()) echo ' has-error'; ?>">
+                        <label class="col-md-4 control-label" for="telephone"><?=$form->get('telephone')->getLabel();?></label>
+                        <div class="col-md-8">
+                            <?=$this->formelement($form->get('telephone')->setAttribute('class', 'form-control')); ?>
+                            <span class="help-block">
+                            <?=$this->formElementErrors($form->get('telephone'), [
+                                'class' => 'list-unstyled'
+                            ]); ?>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group<?php if ($form->get('image')->getMessages()) echo ' has-error'; ?>">
+                        <label class="col-md-4 control-label" for="image"><?=$form->get('image')->getLabel();?></label>
+                        <div class="col-md-8">
+                            <div class="input-group">
+                                <?=$this->formelement($form->get('image')->setAttribute('class', 'form-control')); ?>
+                                <span class="input-group-btn">
+                                    <a id="add-business-image-button" class="btn btn-default" data-toggle="modal"
+                                            data-target="#business-image-model">
+                                        Add Image
+                                    </a>
+                                </span>
+                            </div>
+                            <span class="help-block">
+                            <?=$this->formElementErrors($form->get('image'), [
+                                'class' => 'list-unstyled'
+                            ]); ?>
+                            </span>
+                        </div>
+                    </div>
+                    
+                     <div class="form-group<?php if ($form->get('location')->getMessages()) echo ' has-error'; ?>">
+                        <label class="col-md-4 control-label" for="location"><?=$form->get('location')->getLabel();?></label>
+                        <div class="col-md-8">
+                            <?=$this->formelement($form->get('location')->setAttribute('class', 'form-control')); ?>
+                            <span class="help-block">
+                            <?=$this->formElementErrors($form->get('location'), [
+                                'class' => 'list-unstyled'
+                            ]); ?>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group<?php if ($form->get('website')->getMessages()) echo ' has-error'; ?>">
+                        <label class="col-md-4 control-label" for="website"><?=$form->get('website')->getLabel();?></label>
+                        <div class="col-md-8">
+                            <?=$this->formelement($form->get('website')->setAttribute('class', 'form-control')); ?>
+                            <span class="help-block">
+                            <?=$this->formElementErrors($form->get('website'), [
+                                'class' => 'list-unstyled'
+                            ]); ?>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group<?php if ($form->get('sector')->getMessages()) echo ' has-error'; ?>">
+                        <label class="col-md-4 control-label" for="sector"><?=$form->get('sector')->getLabel();?></label>
+                        <div class="col-md-8">
+                            <?=$this->formelement($form->get('sector')->setAttribute('class', 'form-control')); ?>
+                            <span class="help-block">
+                            <?=$this->formElementErrors($form->get('sector'), [
+                                'class' => 'list-unstyled'
+                            ]); ?>
+                            </span>
+                        </div>
+                    </div>
+                </fieldset>
+           	</div>
+
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>HTML Content</legend>
+                    <?=$this->formElement($form->get('text')->setAttribute('class', 'form-control')); ?>
+                </fieldset>
+            </div>
+        </div>
+                
+        <?=$this->formElement($form->get('businessListId')); ?>
+        <?=$this->formElement($form->get('slug')); ?>
+
+        <input type="hidden" name="action" value="<?=$this->formAction; ?>">
+        
+        <div class="clearfix">&nbsp;</div>
+        
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-primary" 
+                data-loading-text="Please wait...">Submit</button>
+                <button type="button" class="btn btn-warning" 
+                data-loading-text="Please wait..." onClick="window.location = '<?=$this->url('admin/business-list', array(
+                        'action' => 'list',
+                    )) ?>';">Cancel</button>
+            </div>
+        </div>
+        </fieldset>
+    </form>
+</div>
+
+<div id="business-image-model" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Upload Image</h4>
+            </div>
+            <div class="modal-body">
+                <i class="fa fa-spinner fa-spin"></i>&nbsp;Loading
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="business-image-save" type="button" class="btn btn-primary">Upload</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $('#business-image-model').on('show.bs.modal', function () {
+        $(this).find('.modal-body').load('<?=$this->url('admin/uploader', [
+            'action'    => 'upload-form',
+        ]);?>');
+    });
+
+    $('#business-image-model').on('hide.bs.modal', function (e) {
+        $(this).find('.modal-body').html('<i class="fa fa-spinner fa-spin"></i>&nbsp;Loading');
+
+        if (admin.upload && admin.upload.status) {
+            $('#business-list-image').val(admin.upload.image.name);
+        }
+    });
+
+    $('#business-image-save').on('click', function () {
+        $('#upload-form').submit();
+    });
+
+    $('#business-content-textarea').liveEdit({
+        height: '325px',
+        css: [
+            'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css',
+            'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css',
+            'http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css'
+        ] /* Apply bootstrap css into the editing area */ ,
+        groups: [
+            ["group1", "", ["Bold", "Italic", "Underline", "ForeColor", "RemoveFormat"]],
+            ["group2", "", ["Bullets", "Numbering", "Indent", "Outdent"]],
+            ["group3", "", ["Paragraph", "FontSize", "FontDialog", "TextDialog"]],
+            ["group4", "", ["LinkDialog"]],
+            ["group5", "", ["Undo", "Redo", "FullScreen", "SourceDialog"]]
+        ] /* Toolbar configuration */
+    });
+    $('#business-content-textarea').data('liveEdit').startedit(); /* Run the Editor */
+</script>
+

@@ -1,0 +1,28 @@
+<?php if ($this->isAllowed('business-list:edit') && $this->model->getUserId() === $this->identity()->getUserId()):?>
+    <a href="<?=$this->url('business', [
+        'action'    => 'edit-business',
+        'business'    => $model->getSlug(),
+    ]);?>" class="btn btn-default">Edit Profile</a>
+<?php endif;?>
+<div class="media">
+    <a class="pull-left" href="<?=$this->escapeHtml($model->getWebsite());?>">
+        <img class="media-object" style="max-width:128px;" src="<?=$this->basePath('/userfiles/'.$this->escapeHtml
+            ($model->getImage
+                ()));?>"
+             alt="<?=$this->escapeHtml($model->getCompany());?>">
+    </a>
+    <div class="media-body">
+        <h4 class="media-heading">
+            <a href="<?=$this->url('business', [
+                'action'    => 'view-business',
+                'business'    => $model->getSlug(),
+            ]);?>">
+                <?=$this->escapeHtml($model->getCompany());?>
+            </a>
+        </h4>
+        <?=$model->getText();?>
+        <br>
+        <i class="glyphicon glyphicon-tag"></i>&nbsp;<?=$this->escapeHtml($model->getLocation());?>&nbsp;
+        <i class="glyphicon glyphicon-tag"></i>&nbsp;<?=$this->escapeHtml($model->getSector());?>
+    </div>
+</div>

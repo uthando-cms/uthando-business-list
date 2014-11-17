@@ -1,0 +1,7 @@
+<?php $this->headTitle('Edit Member') ?>
+
+<?=$this->partial('uthando-business-list/business-list/business-form', [
+    'form' => $this->form,
+    'formAction' => 'edit',
+    'businessListId' => $this->model->getBusinessListId()
+]); ?>
