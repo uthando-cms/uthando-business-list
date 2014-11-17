@@ -72,9 +72,8 @@ return [
             'business' => [
                 'type' => 'Segment',
                 'options' => [
-                    'route' => '/business/[:action[/:business]]',
+                    'route' => '/business/[:business]',
                     'constraints' => [
-                        'action'    => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'business'  => '[a-zA-Z][a-zA-Z0-9_-]*',
                     ],
                     'defaults' => [
@@ -82,6 +81,18 @@ return [
                         'controller'    => 'BusinessList',
                         'action'        => 'view-business',
                         'force-ssl'     => 'http'
+                    ],
+                ],
+                'may_terminate' => true,
+                'child_routes' => [
+                    'edit' => [
+                        'type'    => 'Literal',
+                        'options' => [
+                            'route' => '/edit',
+                            'defaults'      => [
+                                'action' => 'edit-business',
+                            ],
+                        ],
                     ],
                 ],
             ],

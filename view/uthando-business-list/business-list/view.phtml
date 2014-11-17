@@ -20,7 +20,6 @@
     <div class="media-body">
         <h4 class="media-heading">
             <a href="<?=$this->url('business', [
-                'action'    => 'view-business',
                 'business'  => $row->getSlug(),
             ]);?>">
                 <?=$this->escapeHtml($row->getCompany());?>

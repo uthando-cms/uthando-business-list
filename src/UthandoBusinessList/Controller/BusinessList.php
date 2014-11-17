@@ -51,7 +51,7 @@ class BusinessList extends AbstractCrudController
             );
         }
 
-        $url = $this->url()->fromRoute('business', $this->params()->fromRoute());
+        $url = $this->url()->fromRoute('business/edit', $this->params()->fromRoute());
         $prg = $this->prg($url, true);
 
         if ($prg instanceof Response) {
@@ -88,7 +88,6 @@ class BusinessList extends AbstractCrudController
 
         return $this->redirect()->toRoute(
             'business', [
-                'action' => 'view-business',
                 'business' => $model->getSlug(),
             ]
         );

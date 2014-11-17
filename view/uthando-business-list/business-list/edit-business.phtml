@@ -11,8 +11,7 @@ echo $this->headScript()
 $form = $this->form;
 ?>
 <div class="row">
-    <form class="col-md-12 form form-horizontal" method="post" action="<?=$this->url('business',[
-        'action' => 'edit-business',
+    <form class="col-md-12 form form-horizontal" method="post" action="<?=$this->url('business/edit',[
         'business' => $this->model->getSlug(),
     ]) ?>">
         <fieldset>
@@ -122,9 +121,9 @@ $form = $this->form;
                     <button type="submit" class="btn btn-primary"
                             data-loading-text="Please wait...">Submit</button>
                     <button type="button" class="btn btn-warning"
-                            data-loading-text="Please wait..." onClick="window.location = '<?=$this->url('admin/business-list', array(
-                        'action' => 'list',
-                    )) ?>';">Cancel</button>
+                            data-loading-text="Please wait..." onClick="window.location = '<?=$this->url('business/edit',[
+                        'business' => $this->model->getSlug(),
+                    ]); ?>';">Cancel</button>
                 </div>
             </div>
         </fieldset>

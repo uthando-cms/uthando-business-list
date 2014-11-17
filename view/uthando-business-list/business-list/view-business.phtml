@@ -1,6 +1,5 @@
 <?php if ($this->isAllowed('business-list:edit') && $this->model->getUserId() === $this->identity()->getUserId()):?>
-    <a href="<?=$this->url('business', [
-        'action'    => 'edit-business',
+    <a href="<?=$this->url('business/edit', [
         'business'    => $model->getSlug(),
     ]);?>" class="btn btn-default">Edit Profile</a>
 <?php endif;?>
@@ -14,7 +13,6 @@
     <div class="media-body">
         <h4 class="media-heading">
             <a href="<?=$this->url('business', [
-                'action'    => 'view-business',
                 'business'    => $model->getSlug(),
             ]);?>">
                 <?=$this->escapeHtml($model->getCompany());?>
