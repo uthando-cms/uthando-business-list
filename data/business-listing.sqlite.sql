@@ -1,5 +1,5 @@
 
-CREATE TABLE businessListId (
+CREATE TABLE businessList (
   businessListId integer PRIMARY KEY AUTOINCREMENT NOT NULL,
   userId integer NOT NULL,
   company varchar(255) NOT NULL,
