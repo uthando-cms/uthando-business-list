@@ -8,6 +8,7 @@ echo $this->headScript()
 $form = $this->form;
 $routeArray = array('action' => $this->formAction);
 if (isset($this->businessListId)) $routeArray['id'] = $this->businessListId;
+
 ?>
 <div class="row">
     <form class="col-md-12 form form-horizontal" method="post" action="<?=$this->url('admin/business-list/edit',

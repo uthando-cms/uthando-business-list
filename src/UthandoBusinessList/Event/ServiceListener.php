@@ -15,7 +15,7 @@ class ServiceListener implements ListenerAggregateInterface
         $events = $events->getSharedManager();
         
         $this->listeners[] = $events->attach([
-            'UthandoBusinessList\Service\Member'
+            'UthandoBusinessList\Service\BusinessList'
         ], ['pre.form'], [$this, 'setBusinessSlug']);
     }
     

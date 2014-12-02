@@ -11,6 +11,11 @@ class BusinessList extends InputFilter
         $this->add([
             'name' => 'businessListId',
             'required' => false,
+            'filters'       => [
+                ['name' => 'StripTags'],
+                ['name' => 'StringTrim'],
+                ['name' => 'Digits']
+            ],
         ]);
 
         $this->add([
@@ -42,6 +47,7 @@ class BusinessList extends InputFilter
 
         $this->add([
             'name' => 'telephone',
+            'required' => false,
             'filters'       => [
                 ['name' => 'StripTags'],
                 ['name' => 'StringTrim'],
@@ -50,6 +56,7 @@ class BusinessList extends InputFilter
 
         $this->add([
             'name' => 'image',
+            'required' => false,
             'filters'       => [
                 ['name' => 'StripTags'],
                 ['name' => 'StringTrim'],
@@ -58,6 +65,7 @@ class BusinessList extends InputFilter
 
         $this->add([
             'name' => 'location',
+            'required' => false,
             'filters'       => [
                 ['name' => 'StripTags'],
                 ['name' => 'StringTrim'],
@@ -75,6 +83,7 @@ class BusinessList extends InputFilter
 
         $this->add([
             'name' => 'website',
+            'required' => false,
             'filters'       => [
                 ['name' => 'StripTags'],
                 ['name' => 'StringTrim'],
@@ -83,6 +92,7 @@ class BusinessList extends InputFilter
 
         $this->add([
             'name' => 'sector',
+            'required' => false,
             'filters'       => [
                 ['name' => 'StripTags'],
                 ['name' => 'StringTrim'],
@@ -92,7 +102,7 @@ class BusinessList extends InputFilter
 
         $this->add([
             'name' => 'text',
-            'required' => true,
+            'required' => false,
         ]);
     }
 } 
