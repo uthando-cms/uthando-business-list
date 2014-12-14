@@ -24,6 +24,9 @@ class BusinessList extends Form
             'options' => [
                 'label' => 'User:'
             ],
+            'attributes' => [
+                'class' => 'form-control',
+            ],
         ]);
 
         $this->add([
@@ -32,6 +35,9 @@ class BusinessList extends Form
             'options'		=> [
                 'label'	=> 'Telephone:',
             ],
+            'attributes' => [
+                'class' => 'form-control',
+            ],
         ]);
 
         $this->add([
@@ -39,6 +45,7 @@ class BusinessList extends Form
             'type' => 'text',
             'attributes' => [
                 'id' => 'business-list-image',
+                'class' => 'form-control',
             ],
             'options'		=> [
                 'label'	=> 'Image:',
@@ -51,6 +58,9 @@ class BusinessList extends Form
             'options'		=> [
                 'label'	=> 'Location:',
             ],
+            'attributes' => [
+                'class' => 'form-control',
+            ],
         ]);
 
         $this->add([
@@ -59,13 +69,19 @@ class BusinessList extends Form
             'options'		=> [
                 'label'	=> 'Company:',
             ],
+            'attributes' => [
+                'class' => 'form-control',
+            ],
         ]);
 
         $this->add([
             'name' => 'website',
-            'type' => 'text',
+            'type' => 'Url',
             'options'		=> [
                 'label'	=> 'Website:',
+            ],
+            'attributes' => [
+                'class' => 'form-control',
             ],
         ]);
 
@@ -74,6 +90,9 @@ class BusinessList extends Form
             'type' => 'text',
             'options'		=> [
                 'label'	=> 'Sector:',
+            ],
+            'attributes' => [
+                'class' => 'form-control',
             ],
         ]);
 
@@ -85,7 +104,8 @@ class BusinessList extends Form
             ],
             'attributes'    => [
                 'id'    => 'business-content-textarea',
-            ]
+                'class' => 'form-control',
+            ],
         ]);
     }
 };

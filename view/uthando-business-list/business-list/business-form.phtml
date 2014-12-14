@@ -23,7 +23,7 @@ if (isset($this->businessListId)) $routeArray['id'] = $this->businessListId;
                         <label class="col-md-4 control-label" for="userId"><?=$form->get('userId')->getLabel();
                             ?></label>
                         <div class="col-md-8">
-                            <?=$this->formelement($form->get('userId')->setAttribute('class', 'form-control')); ?>
+                            <?=$this->formSelect($form->get('userId')); ?>
                             <span class="help-block">
                             <?=$this->formElementErrors($form->get('userId'), [
                                 'class' => 'list-unstyled'
@@ -34,7 +34,7 @@ if (isset($this->businessListId)) $routeArray['id'] = $this->businessListId;
                     <div class="form-group<?php if ($form->get('company')->getMessages()) echo ' has-error'; ?>">
                         <label class="col-md-4 control-label" for="company"><?=$form->get('company')->getLabel();?></label>
                         <div class="col-md-8">
-                            <?=$this->formelement($form->get('company')->setAttribute('class', 'form-control')); ?>
+                            <?=$this->formText($form->get('company')); ?>
                             <span class="help-block">
                             <?=$this->formElementErrors($form->get('company'), [
                                 'class' => 'list-unstyled'
@@ -45,7 +45,7 @@ if (isset($this->businessListId)) $routeArray['id'] = $this->businessListId;
                     <div class="form-group<?php if ($form->get('telephone')->getMessages()) echo ' has-error'; ?>">
                         <label class="col-md-4 control-label" for="telephone"><?=$form->get('telephone')->getLabel();?></label>
                         <div class="col-md-8">
-                            <?=$this->formelement($form->get('telephone')->setAttribute('class', 'form-control')); ?>
+                            <?=$this->formTel($form->get('telephone')); ?>
                             <span class="help-block">
                             <?=$this->formElementErrors($form->get('telephone'), [
                                 'class' => 'list-unstyled'
@@ -57,7 +57,7 @@ if (isset($this->businessListId)) $routeArray['id'] = $this->businessListId;
                         <label class="col-md-4 control-label" for="image"><?=$form->get('image')->getLabel();?></label>
                         <div class="col-md-8">
                             <div class="input-group">
-                                <?=$this->formelement($form->get('image')->setAttribute('class', 'form-control')); ?>
+                                <?=$this->formText($form->get('image')); ?>
                                 <span class="input-group-btn">
                                     <a id="add-business-image-button" class="btn btn-default" data-toggle="modal"
                                             data-target="#business-image-model">
@@ -76,7 +76,7 @@ if (isset($this->businessListId)) $routeArray['id'] = $this->businessListId;
                      <div class="form-group<?php if ($form->get('location')->getMessages()) echo ' has-error'; ?>">
                         <label class="col-md-4 control-label" for="location"><?=$form->get('location')->getLabel();?></label>
                         <div class="col-md-8">
-                            <?=$this->formelement($form->get('location')->setAttribute('class', 'form-control')); ?>
+                            <?=$this->formText($form->get('location')); ?>
                             <span class="help-block">
                             <?=$this->formElementErrors($form->get('location'), [
                                 'class' => 'list-unstyled'
@@ -88,7 +88,7 @@ if (isset($this->businessListId)) $routeArray['id'] = $this->businessListId;
                     <div class="form-group<?php if ($form->get('website')->getMessages()) echo ' has-error'; ?>">
                         <label class="col-md-4 control-label" for="website"><?=$form->get('website')->getLabel();?></label>
                         <div class="col-md-8">
-                            <?=$this->formelement($form->get('website')->setAttribute('class', 'form-control')); ?>
+                            <?=$this->formUrl($form->get('website')); ?>
                             <span class="help-block">
                             <?=$this->formElementErrors($form->get('website'), [
                                 'class' => 'list-unstyled'
@@ -100,7 +100,7 @@ if (isset($this->businessListId)) $routeArray['id'] = $this->businessListId;
                     <div class="form-group<?php if ($form->get('sector')->getMessages()) echo ' has-error'; ?>">
                         <label class="col-md-4 control-label" for="sector"><?=$form->get('sector')->getLabel();?></label>
                         <div class="col-md-8">
-                            <?=$this->formelement($form->get('sector')->setAttribute('class', 'form-control')); ?>
+                            <?=$this->formText($form->get('sector')); ?>
                             <span class="help-block">
                             <?=$this->formElementErrors($form->get('sector'), [
                                 'class' => 'list-unstyled'
@@ -114,13 +114,13 @@ if (isset($this->businessListId)) $routeArray['id'] = $this->businessListId;
             <div class="col-md-6">
                 <fieldset>
                     <legend>HTML Content</legend>
-                    <?=$this->formElement($form->get('text')->setAttribute('class', 'form-control')); ?>
+                    <?=$this->formTextarea($form->get('text')); ?>
                 </fieldset>
             </div>
         </div>
                 
-        <?=$this->formElement($form->get('businessListId')); ?>
-        <?=$this->formElement($form->get('slug')); ?>
+        <?=$this->formHidden($form->get('businessListId')); ?>
+        <?=$this->formHidden($form->get('slug')); ?>
 
         <input type="hidden" name="action" value="<?=$this->formAction; ?>">
         
