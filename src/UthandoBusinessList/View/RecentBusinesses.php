@@ -10,7 +10,8 @@ class RecentBusinesses extends AbstractViewHelper
     {
         $service = $this->getServiceLocator()
             ->getServiceLocator()
-            ->get('UthandoBusinessList\Service\BusinessList');
+            ->get('UthandoServiceManager')
+            ->get('UthandoBusinessList');
 
         $models = $service->getRecentBusinesses($number);
 
