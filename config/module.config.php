@@ -38,6 +38,49 @@ return [
             ],
         ],
     ],
+    'controllers' => [
+        'invokables' => [
+            'UthandoBusinessList\Controller\BusinessList' => 'UthandoBusinessList\Controller\BusinessList',
+        ],
+    ],
+    'form_elements' => [
+        'invokables' => [
+            'UthandoBusinessList' => 'UthandoBusinessList\Form\BusinessList',
+        ],
+    ],
+    'hydrators' => [
+        'invokables' => [
+            'UthandoBusinessList' => 'UthandoBusinessList\Hydrator\BusinessList',
+        ],
+    ],
+    'input_filters' => [
+        'invokables' => [
+            'UthandoBusinessList' => 'UthandoBusinessList\InputFilter\BusinessList',
+        ],
+    ],
+    'uthando_mappers' => [
+        'invokables' => [
+            'UthandoBusinessList' => 'UthandoBusinessList\Mapper\BusinessList',
+        ],
+    ],
+    'uthando_models' => [
+        'invokables' => [
+            'UthandoBusinessList' => 'UthandoBusinessList\Model\BusinessList',
+        ],
+    ],
+    'uthando_services' => [
+        'invokables' => [
+            'UthandoBusinessList' => 'UthandoBusinessList\Service\BusinessList',
+        ],
+    ],
+    'view_helpers' => [
+        'invokables' => [
+            'UthandoRecentBusinesses' => 'UthandoBusinessList\View\RecentBusinesses',
+        ],
+    ],
+    'view_manager' => [
+        'template_map' => include __DIR__ . '/../template_map.php'
+    ],
     'router' => [
         'routes' => [
             'business-list' => [
@@ -174,8 +217,5 @@ return [
                 ],
             ],
         ],
-    ],
-    'view_manager' => [
-        'template_map' => include __DIR__ . '/../template_map.php'
     ],
 ];
