@@ -9,7 +9,7 @@ use Zend\Form\Form;
 
 class BusinessList extends AbstractCrudController
 {
-    protected $controllerSearchOverrides = array('sort' => 'businessListId');
+    protected $controllerSearchOverrides = array('sort' => 'company');
     protected $serviceName = 'UthandoBusinessList';
     protected $route = 'admin/business-list';
     protected $routes = [];
