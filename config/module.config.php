@@ -1,43 +1,5 @@
 <?php
 return [
-    'uthando_user' => [
-        'acl' => [
-            'roles' => [
-                'guest' => [
-                    'privileges' => [
-                        'allow' => [
-                            'controllers' => [
-                                'UthandoBusinessList\Controller\BusinessList' => ['action' => ['view', 'view-business']],
-                            ],
-                        ],
-                    ],
-                ],
-                'registered' => [
-                    'privileges' => [
-                        'allow' => [
-                            'controllers' => [
-                                'UthandoBusinessList\Controller\BusinessList' => ['action' => ['business-list-edit']],
-                            ],
-                            'resources' => ['business-list:edit'],
-                        ],
-                    ],
-                ],
-                'admin' => [
-                    'privileges' => [
-                        'allow' => [
-                            'controllers' => [
-                                'UthandoBusinessList\Controller\BusinessList' => ['action' => 'all'],
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-            'resources' => [
-                'UthandoBusinessList\Controller\BusinessList',
-                'business-list:edit',
-            ],
-        ],
-    ],
     'controllers' => [
         'invokables' => [
             'UthandoBusinessList\Controller\BusinessList' => 'UthandoBusinessList\Controller\BusinessList',
@@ -138,79 +100,6 @@ return [
                         ],
                     ],
                 ],
-            ],
-            'admin' => [
-                'child_routes' => [
-                    'business-list' => [
-                        'type' => 'Literal',
-                        'options' => [
-                            'route' => '/business-list',
-                            'constraints'   => [
-                                'action'    => '[a-zA-Z][a-zA-Z0-9_-]*',
-                            ],
-                            'defaults' => [
-                                '__NAMESPACE__' => 'UthandoBusinessList\Controller',
-                                'controller'    => 'BusinessList',
-                                'action'        => 'index',
-                                'force-ssl'     => 'ssl'
-                            ],
-                        ],
-                        'may_terminate' => true,
-                        'child_routes' => [
-                            'edit' => [
-                                'type'    => 'Segment',
-                                'options' => [
-                                    'route'         => '/[:action[/id/[:id]]]',
-                                    'constraints'   => [
-                                        'action'    => '[a-zA-Z][a-zA-Z0-9_-]*',
-                                        'id'		=> '\d+'
-                                    ],
-                                    'defaults'      => [
-                                        'action'        => 'edit',
-                                        'force-ssl'     => 'ssl'
-                                    ],
-                                ],
-                            ],
-                            'page' => [
-                                'type'    => 'Segment',
-                                'options' => [
-                                    'route'         => '/page/[:page]',
-                                    'constraints'   => [
-                                        'page' => '\d+'
-                                    ],
-                                    'defaults'      => [
-                                        'action'        => 'list',
-                                        'page'          => 1,
-                                        'force-ssl'     => 'ssl'
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-        ],
-    ],
-    'navigation' => [
-        'admin' => [
-            'business-list' => [
-                'label' => 'Business List',
-                'pages' => [
-                    'list' => [
-                        'label'     => 'List All Businesses',
-                        'action'    => 'list',
-                        'route'     => 'admin/business-list',
-                        'resource'  => 'menu:user'
-                    ],
-                    'add' => [
-                        'label'     => 'Add New Business',
-                        'action'    => 'add',
-                        'route'     => 'admin/business-list/edit',
-                        'resource'  => 'menu:user'
-                    ],
-                ],
-                'route' => 'admin/business-list',
-                'resource' => 'menu:user'
             ],
         ],
     ],
