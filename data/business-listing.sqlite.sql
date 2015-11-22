@@ -14,4 +14,4 @@ CREATE TABLE businessList (
   dateModified text(128) NOT NULL,
   FOREIGN KEY (userId) REFERENCES user (userId) ON DELETE RESTRICT
 );
-CREATE UNIQUE INDEX businessListId ON businessList (memberId ASC);
+CREATE UNIQUE INDEX businessListId ON businessList (businessListId ASC);
