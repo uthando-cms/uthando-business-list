@@ -5,6 +5,9 @@ return [
         'admin' => [
             'business-list' => [
                 'label' => 'Business List',
+                'params' => [
+                    'icon' => 'fa-list-alt',
+                ],
                 'pages' => [
                     'list' => [
                         'label'     => 'List All Businesses',
