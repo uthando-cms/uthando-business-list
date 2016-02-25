@@ -77,7 +77,7 @@ class BusinessList extends AbstractCrudController
             // this wasn't a POST request, but there were no params in the flash messenger
             // probably this is the first time the form was loaded
             return [
-                'form' => $this->getService()->getForm($model),
+                'form' => $this->getService()->prepareForm($model),
                 'model' => $model,
             ];
         }
