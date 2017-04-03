@@ -53,7 +53,6 @@ return [
                         '__NAMESPACE__' => 'UthandoBusinessList\Controller',
                         'controller'    => 'BusinessList',
                         'action'        => 'view',
-                        'force-ssl'     => 'http'
                     ],
                 ],
                 'may_terminate' => true,
@@ -68,7 +67,6 @@ return [
                             'defaults'      => [
                                 'action'        => 'view',
                                 'page'          => 1,
-                                'force-ssl'     => 'ssl'
                             ],
                         ],
                     ],
@@ -85,7 +83,6 @@ return [
                         '__NAMESPACE__' => 'UthandoBusinessList\Controller',
                         'controller'    => 'BusinessList',
                         'action'        => 'view-business',
-                        'force-ssl'     => 'http'
                     ],
                 ],
                 'may_terminate' => true,
