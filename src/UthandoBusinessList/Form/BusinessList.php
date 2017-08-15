@@ -10,6 +10,8 @@
  */
 namespace UthandoBusinessList\Form;
 
+use TwbBundle\Form\View\Helper\TwbBundleForm;
+use Zend\Form\Element\Button;
 use Zend\Form\Form;
 
 /**
@@ -35,10 +37,12 @@ class BusinessList extends Form
             'name' => 'userId',
             'type' => 'UthandoUserList',
             'options' => [
-                'label' => 'User:'
-            ],
-            'attributes' => [
-                'class' => 'form-control',
+                'label' => 'User',
+                'twb-layout' => TwbBundleForm::LAYOUT_HORIZONTAL,
+                'column-size' => 'sm-10',
+                'label_attributes' => [
+                    'class' => 'col-sm-2',
+                ],
             ],
         ]);
 
@@ -46,10 +50,15 @@ class BusinessList extends Form
             'name' => 'telephone',
             'type' => 'text',
             'options' => [
-                'label' => 'Telephone:',
+                'label' => 'Telephone',
+                'twb-layout' => TwbBundleForm::LAYOUT_HORIZONTAL,
+                'column-size' => 'sm-10',
+                'label_attributes' => [
+                    'class' => 'col-sm-2',
+                ],
             ],
             'attributes' => [
-                'class' => 'form-control',
+                'placehoder' => 'Telephone',
             ],
         ]);
 
@@ -57,11 +66,18 @@ class BusinessList extends Form
             'name' => 'image',
             'type' => 'text',
             'attributes' => [
-                'id' => 'business-list-image',
-                'class' => 'form-control',
+                'placehoder' => 'Image',
             ],
             'options' => [
-                'label' => 'Image:',
+                'label' => 'Image',
+                'twb-layout' => TwbBundleForm::LAYOUT_HORIZONTAL,
+                'column-size' => 'sm-10',
+                'label_attributes' => [
+                    'class' => 'col-sm-2',
+                ],
+                'add-on-append' => new Button('business-list-image-button', [
+                    'label' => 'Add Image',
+                ]),
             ],
         ]);
 
@@ -69,10 +85,15 @@ class BusinessList extends Form
             'name' => 'location',
             'type' => 'text',
             'options' => [
-                'label' => 'Location:',
+                'label' => 'Location',
+                'twb-layout' => TwbBundleForm::LAYOUT_HORIZONTAL,
+                'column-size' => 'sm-10',
+                'label_attributes' => [
+                    'class' => 'col-sm-2',
+                ],
             ],
             'attributes' => [
-                'class' => 'form-control',
+                'placehoder' => 'Location',
             ],
         ]);
 
@@ -80,10 +101,15 @@ class BusinessList extends Form
             'name' => 'company',
             'type' => 'text',
             'options' => [
-                'label' => 'Company:',
+                'label' => 'Company',
+                'twb-layout' => TwbBundleForm::LAYOUT_HORIZONTAL,
+                'column-size' => 'sm-10',
+                'label_attributes' => [
+                    'class' => 'col-sm-2',
+                ],
             ],
             'attributes' => [
-                'class' => 'form-control',
+                'placehoder' => 'Company',
             ],
         ]);
 
@@ -91,10 +117,15 @@ class BusinessList extends Form
             'name' => 'website',
             'type' => 'Url',
             'options' => [
-                'label' => 'Website:',
+                'label' => 'Website',
+                'twb-layout' => TwbBundleForm::LAYOUT_HORIZONTAL,
+                'column-size' => 'sm-10',
+                'label_attributes' => [
+                    'class' => 'col-sm-2',
+                ],
             ],
             'attributes' => [
-                'class' => 'form-control',
+                'placeholder' => 'Website',
             ],
         ]);
 
@@ -102,10 +133,15 @@ class BusinessList extends Form
             'name' => 'sector',
             'type' => 'text',
             'options' => [
-                'label' => 'Sector:',
+                'label' => 'Sector',
+                'twb-layout' => TwbBundleForm::LAYOUT_HORIZONTAL,
+                'column-size' => 'sm-10',
+                'label_attributes' => [
+                    'class' => 'col-sm-2',
+                ],
             ],
             'attributes' => [
-                'class' => 'form-control',
+                'placeholder' => 'Sector',
             ],
         ]);
 
@@ -113,11 +149,15 @@ class BusinessList extends Form
             'name' => 'text',
             'type' => 'textarea',
             'options' => [
-                'label' => 'Text:',
+                'label' => 'Text',
+                'twb-layout' => TwbBundleForm::LAYOUT_HORIZONTAL,
+                'column-size' => 'sm-10',
+                'label_attributes' => [
+                    'class' => 'col-sm-2',
+                ],
             ],
             'attributes' => [
-                'id' => 'business-content-textarea',
-                'class' => 'form-control',
+                'placeholder' => 'Text',
             ],
         ]);
     }
