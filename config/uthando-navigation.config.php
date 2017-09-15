@@ -10,16 +10,25 @@ return [
                 ],
                 'pages' => [
                     'list' => [
-                        'label'     => 'List All Businesses',
+                        'label'     => 'List Businesses',
                         'action'    => 'list',
                         'route'     => 'admin/business-list',
-                        'resource'  => 'menu:user'
+                        'resource'  => 'menu:user',
+                        'visible'   => false,
                     ],
                     'add' => [
-                        'label'     => 'Add New Business',
+                        'label'     => 'Add Business',
                         'action'    => 'add',
                         'route'     => 'admin/business-list/edit',
-                        'resource'  => 'menu:user'
+                        'resource'  => 'menu:user',
+                        'visible'   => false,
+                    ],
+                    'edit' => [
+                        'label'     => 'Edit Business',
+                        'action'    => 'edit',
+                        'route'     => 'admin/business-list/edit',
+                        'resource'  => 'menu:user',
+                        'visible'   => false,
                     ],
                 ],
                 'route' => 'admin/business-list',
