@@ -2,12 +2,6 @@
 <?php $this->headTitle('Edit Business - ' . $this->model->getCompany()) ?>
 
 <?php
-echo $this->headScript()
-    ->appendFile($this->basePath('/themes/admin/assets/js/LiveEditor/scripts/innovaeditor.js'))
-    ->appendFile($this->basePath('/themes/admin/assets/js/LiveEditor/scripts/jquery.innovaeditor.js'))
-    ->appendFile('//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js')
-    ->appendFile($this->basePath('/themes/admin/assets/js/LiveEditor/scripts/common/webfont.js'));
-
 $form = $this->form;
 ?>
 <div class="row">
@@ -23,7 +17,7 @@ $form = $this->form;
                         <div class="form-group<?php if ($form->get('company')->getMessages()) echo ' has-error'; ?>">
                             <label class="col-md-4 control-label" for="company"><?=$form->get('company')->getLabel();?></label>
                             <div class="col-md-8">
-                                <?=$this->formelement($form->get('company')->setAttribute('class', 'form-control')); ?>
+                                <?=$this->formelement($form->get('company')); ?>
                                 <span class="help-block">
                             <?=$this->formElementErrors($form->get('company'), [
                                 'class' => 'list-unstyled'
@@ -34,7 +28,7 @@ $form = $this->form;
                         <div class="form-group<?php if ($form->get('telephone')->getMessages()) echo ' has-error'; ?>">
                             <label class="col-md-4 control-label" for="telephone"><?=$form->get('telephone')->getLabel();?></label>
                             <div class="col-md-8">
-                                <?=$this->formelement($form->get('telephone')->setAttribute('class', 'form-control')); ?>
+                                <?=$this->formelement($form->get('telephone')); ?>
                                 <span class="help-block">
                             <?=$this->formElementErrors($form->get('telephone'), [
                                 'class' => 'list-unstyled'
@@ -46,12 +40,7 @@ $form = $this->form;
                             <label class="col-md-4 control-label" for="image"><?=$form->get('image')->getLabel();?></label>
                             <div class="col-md-8">
                                 <div class="input-group">
-                                    <?=$this->formelement($form->get('image')->setAttribute('class', 'form-control')); ?>
-                                    <span class="input-group-btn">
-                                    <a id="add-business-image-button" class="btn btn-default" data-toggle="modal"
-                                       data-target="#business-image-model">
-                                        Add Image
-                                    </a>
+                                    <?=$this->formelement($form->get('image')); ?>
                                 </span>
                                 </div>
                             <span class="help-block">
@@ -65,7 +54,7 @@ $form = $this->form;
                         <div class="form-group<?php if ($form->get('location')->getMessages()) echo ' has-error'; ?>">
                             <label class="col-md-4 control-label" for="location"><?=$form->get('location')->getLabel();?></label>
                             <div class="col-md-8">
-                                <?=$this->formelement($form->get('location')->setAttribute('class', 'form-control')); ?>
+                                <?=$this->formelement($form->get('location')); ?>
                                 <span class="help-block">
                             <?=$this->formElementErrors($form->get('location'), [
                                 'class' => 'list-unstyled'
@@ -77,7 +66,7 @@ $form = $this->form;
                         <div class="form-group<?php if ($form->get('website')->getMessages()) echo ' has-error'; ?>">
                             <label class="col-md-4 control-label" for="website"><?=$form->get('website')->getLabel();?></label>
                             <div class="col-md-8">
-                                <?=$this->formelement($form->get('website')->setAttribute('class', 'form-control')); ?>
+                                <?=$this->formelement($form->get('website')); ?>
                                 <span class="help-block">
                             <?=$this->formElementErrors($form->get('website'), [
                                 'class' => 'list-unstyled'
@@ -89,7 +78,7 @@ $form = $this->form;
                         <div class="form-group<?php if ($form->get('sector')->getMessages()) echo ' has-error'; ?>">
                             <label class="col-md-4 control-label" for="sector"><?=$form->get('sector')->getLabel();?></label>
                             <div class="col-md-8">
-                                <?=$this->formelement($form->get('sector')->setAttribute('class', 'form-control')); ?>
+                                <?=$this->formelement($form->get('sector')); ?>
                                 <span class="help-block">
                             <?=$this->formElementErrors($form->get('sector'), [
                                 'class' => 'list-unstyled'
@@ -103,7 +92,7 @@ $form = $this->form;
                 <div class="col-md-6">
                     <fieldset>
                         <legend>HTML Content</legend>
-                        <?=$this->formElement($form->get('text')->setAttribute('class', 'form-control')); ?>
+                        <?=$this->formElement($form->get('text')); ?>
                     </fieldset>
                 </div>
             </div>
@@ -121,7 +110,7 @@ $form = $this->form;
                     <button type="submit" class="btn btn-primary"
                             data-loading-text="Please wait...">Submit</button>
                     <button type="button" class="btn btn-warning"
-                            data-loading-text="Please wait..." onClick="window.location = '<?=$this->url('business/edit',[
+                            data-loading-text="Please wait..." onClick="window.location = '<?=$this->url('business',[
                         'business' => $this->model->getSlug(),
                     ]); ?>';">Cancel</button>
                 </div>
@@ -130,88 +119,6 @@ $form = $this->form;
     </form>
 </div>
 
-<div id="business-image-model" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Upload Image</h4>
-            </div>
-            <div class="modal-body">
-                <i class="fa fa-spinner fa-spin"></i>&nbsp;Loading
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button id="business-image-save" type="button" class="btn btn-primary">Upload</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<style>
-    .btn-file {
-        position: relative;
-        overflow: hidden;
-    }
-    .btn-file input[type=file] {
-        position: absolute;
-        top: 0;
-        right: 0;
-        min-width: 100%;
-        min-height: 100%;
-        font-size: 100px;
-        text-align: right;
-        filter: alpha(opacity=0);
-        opacity: 0;
-        outline: none;
-        background: white;
-        cursor: inherit;
-        display: block;
-    }
-
-    input[readonly] {
-        background-color: white !important;
-        cursor: text !important;
-    }
-</style>
-
-<script type="text/javascript">
-
-    var admin = {};
-
-    $('#business-image-model').on('show.bs.modal', function () {
-        $(this).find('.modal-body').load('<?=$this->url('admin/uploader', [
-            'action'    => 'upload-form',
-        ]);?>');
-    });
-
-    $('#business-image-model').on('hide.bs.modal', function (e) {
-        $(this).find('.modal-body').html('<i class="fa fa-spinner fa-spin"></i>&nbsp;Loading');
-
-        if (admin.upload && admin.upload.status) {
-            $('#business-list-image').val(admin.upload.image.name);
-        }
-    });
-
-    $('#business-image-save').on('click', function () {
-        $('#upload-form').submit();
-    });
-
-    $('#business-content-textarea').liveEdit({
-        height: '325px',
-        css: [
-            'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css',
-            'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css',
-            'http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css'
-        ] /* Apply bootstrap css into the editing area */ ,
-        groups: [
-            ["group1", "", ["Bold", "Italic", "Underline", "ForeColor", "RemoveFormat"]],
-            ["group2", "", ["Bullets", "Numbering", "Indent", "Outdent"]],
-            ["group3", "", ["Paragraph", "FontSize", "FontDialog", "TextDialog"]],
-            ["group4", "", ["LinkDialog"]],
-            ["group5", "", ["Undo", "Redo", "FullScreen", "SourceDialog"]]
-        ] /* Toolbar configuration */
-    });
-    $('#business-content-textarea').data('liveEdit').startedit(); /* Run the Editor */
-</script>
+<?=$this->textEditor()->summernote();?>
+<?=$this->fileManager()->uploadButton('business-list-image', 'business-list-image-button');?>
 

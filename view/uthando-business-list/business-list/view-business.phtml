@@ -5,9 +5,7 @@
 <?php endif;?>
 <div class="media">
     <a class="pull-left" href="<?=$this->escapeHtml($model->getWebsite());?>">
-        <img class="media-object" style="max-width:128px;" src="<?=$this->basePath('/userfiles/'.$this->escapeHtml
-            ($model->getImage
-                ()));?>"
+        <img class="media-object" style="max-width:128px;" src="<?=$this->escapeHtml($model->getImage());?>"
              alt="<?=$this->escapeHtml($model->getCompany());?>">
     </a>
     <div class="media-body">

@@ -67,6 +67,7 @@ class BusinessList extends Form
             'type' => 'text',
             'attributes' => [
                 'placehoder' => 'Image',
+                'id' => 'business-list-image',
             ],
             'options' => [
                 'label' => 'Image',
@@ -158,6 +159,9 @@ class BusinessList extends Form
             ],
             'attributes' => [
                 'placeholder' => 'Text',
+                'class'       => 'editable-textarea',
+                'id'          => 'business-list-content-textarea',
+                'rows'        => 25,
             ],
         ]);
     }
