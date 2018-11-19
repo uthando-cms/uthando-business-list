@@ -10,6 +10,7 @@
  */
 namespace UthandoBusinessList\Event;
 
+use UthandoBusinessList\Service\BusinessListService;
 use Zend\EventManager\Event;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\ListenerAggregateInterface;
@@ -29,7 +30,7 @@ class ServiceListener implements ListenerAggregateInterface
         $events = $events->getSharedManager();
 
         $this->listeners[] = $events->attach([
-            'UthandoBusinessList\Service\BusinessList'
+            BusinessListService::class
         ], ['pre.form'], [$this, 'setBusinessSlug']);
     }
 

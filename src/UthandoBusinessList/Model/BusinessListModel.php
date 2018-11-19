@@ -20,7 +20,7 @@ use UthandoCommon\Model\ModelInterface;
  *
  * @package UthandoBusinessList\Model
  */
-class BusinessList implements ModelInterface
+class BusinessListModel implements ModelInterface
 {
     use Model,
         DateCreatedTrait,

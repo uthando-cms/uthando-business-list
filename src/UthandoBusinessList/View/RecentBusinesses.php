@@ -11,6 +11,8 @@
 
 namespace UthandoBusinessList\View;
 
+use UthandoBusinessList\Service\BusinessListService;
+use UthandoCommon\Service\ServiceManager;
 use UthandoCommon\View\AbstractViewHelper;
 
 /**
@@ -24,8 +26,8 @@ class RecentBusinesses extends AbstractViewHelper
     {
         $service = $this->getServiceLocator()
             ->getServiceLocator()
-            ->get('UthandoServiceManager')
-            ->get('UthandoBusinessList');
+            ->get(ServiceManager::class)
+            ->get(BusinessListService::class);
 
         $models = $service->getRecentBusinesses($number);
 

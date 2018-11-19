@@ -1,43 +1,26 @@
 <?php
+
+use UthandoBusinessList\Controller\BusinessListController;
+use UthandoBusinessList\Service\BusinessListService;
+use UthandoBusinessList\View\RecentBusinesses;
+
 return [
     'controllers' => [
         'invokables' => [
-            'UthandoBusinessList\Controller\BusinessList' => 'UthandoBusinessList\Controller\BusinessList',
-        ],
-    ],
-    'form_elements' => [
-        'invokables' => [
-            'UthandoBusinessList' => 'UthandoBusinessList\Form\BusinessList',
-        ],
-    ],
-    'hydrators' => [
-        'invokables' => [
-            'UthandoBusinessList' => 'UthandoBusinessList\Hydrator\BusinessList',
-        ],
-    ],
-    'input_filters' => [
-        'invokables' => [
-            'UthandoBusinessList' => 'UthandoBusinessList\InputFilter\BusinessList',
-        ],
-    ],
-    'uthando_mappers' => [
-        'invokables' => [
-            'UthandoBusinessList' => 'UthandoBusinessList\Mapper\BusinessList',
-        ],
-    ],
-    'uthando_models' => [
-        'invokables' => [
-            'UthandoBusinessList' => 'UthandoBusinessList\Model\BusinessList',
+            BusinessListController::class => BusinessListController::class,
         ],
     ],
     'uthando_services' => [
         'invokables' => [
-            'UthandoBusinessList' => 'UthandoBusinessList\Service\BusinessList',
+            BusinessListService::class => BusinessListService::class,
         ],
     ],
     'view_helpers' => [
+        'aliases' => [
+            'UthandoRecentBusinesses' => RecentBusinesses::class,
+        ],
         'invokables' => [
-            'UthandoRecentBusinesses' => 'UthandoBusinessList\View\RecentBusinesses',
+            RecentBusinesses::class => RecentBusinesses::class,
         ],
     ],
     'view_manager' => [
@@ -51,7 +34,7 @@ return [
                     'route' => '/business-list',
                     'defaults' => [
                         '__NAMESPACE__' => 'UthandoBusinessList\Controller',
-                        'controller'    => 'BusinessList',
+                        'controller'    => BusinessListController::class,
                         'action'        => 'view',
                     ],
                 ],
@@ -81,7 +64,7 @@ return [
                     ],
                     'defaults' => [
                         '__NAMESPACE__' => 'UthandoBusinessList\Controller',
-                        'controller'    => 'BusinessList',
+                        'controller'    => BusinessListController::class,
                         'action'        => 'view-business',
                     ],
                 ],

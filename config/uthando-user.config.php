@@ -1,5 +1,7 @@
 <?php
 
+use UthandoBusinessList\Controller\BusinessListController;
+
 return [
     'uthando_user' => [
         'acl' => [
@@ -8,7 +10,7 @@ return [
                     'privileges' => [
                         'allow' => [
                             'controllers' => [
-                                'UthandoBusinessList\Controller\BusinessList' => ['action' => ['view', 'view-business']],
+                                BusinessListController::class=> ['action' => ['view', 'view-business']],
                             ],
                         ],
                     ],
@@ -17,7 +19,7 @@ return [
                     'privileges' => [
                         'allow' => [
                             'controllers' => [
-                                'UthandoBusinessList\Controller\BusinessList' => ['action' => ['business-list-edit']],
+                                BusinessListController::class => ['action' => ['business-list-edit']],
                             ],
                             'resources' => ['business-list:edit'],
                         ],
@@ -27,14 +29,14 @@ return [
                     'privileges' => [
                         'allow' => [
                             'controllers' => [
-                                'UthandoBusinessList\Controller\BusinessList' => ['action' => 'all'],
+                                BusinessListController::class => ['action' => 'all'],
                             ],
                         ],
                     ],
                 ],
             ],
             'resources' => [
-                'UthandoBusinessList\Controller\BusinessList',
+                BusinessListController::class,
                 'business-list:edit',
             ],
         ],

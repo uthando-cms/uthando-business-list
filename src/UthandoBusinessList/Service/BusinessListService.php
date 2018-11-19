@@ -10,6 +10,11 @@
  */
 namespace UthandoBusinessList\Service;
 
+use UthandoBusinessList\Form\BusinessListForm;
+use UthandoBusinessList\Hydrator\BusinessListHydrator;
+use UthandoBusinessList\InputFilter\BusinessListInputFilter;
+use UthandoBusinessList\Mapper\BusinessListMapper;
+use UthandoBusinessList\Model\BusinessListModel;
 use UthandoCommon\Service\AbstractMapperService;
 
 /**
@@ -17,9 +22,13 @@ use UthandoCommon\Service\AbstractMapperService;
  *
  * @package UthandoBusinessList\Service
  */
-class BusinessList extends AbstractMapperService
+class BusinessListService extends AbstractMapperService
 {
-    protected $serviceAlias = 'UthandoBusinessList';
+    protected $form         = BusinessListForm::class;
+    protected $hydrator     = BusinessListHydrator::class;
+    protected $inputFilter  = BusinessListInputFilter::class;
+    protected $mapper       = BusinessListMapper::class;
+    protected $model        = BusinessListModel::class;
 
     /**
      * @param $slug
@@ -29,7 +38,7 @@ class BusinessList extends AbstractMapperService
     public function getBusinessBySlug($slug, $userId = null)
     {
         $slug = (string)$slug;
-        /* @var $mapper \UthandoBusinessList\Mapper\BusinessList */
+        /* @var $mapper BusinessListMapper */
         $mapper = $this->getMapper();
         return $mapper->getBusinessBySlug($slug, $userId);
     }
@@ -41,7 +50,7 @@ class BusinessList extends AbstractMapperService
     public function getRecentBusinesses($limit)
     {
         $limit = (int)$limit;
-        /* @var $mapper \UthandoBusinessList\Mapper\BusinessList */
+        /* @var $mapper BusinessListMapper */
         $mapper = $this->getMapper();
         return $mapper->getBusinessesByDate($limit);
     }

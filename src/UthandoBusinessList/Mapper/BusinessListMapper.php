@@ -17,7 +17,7 @@ use UthandoCommon\Mapper\AbstractDbMapper;
  *
  * @package UthandoBusinessList\Mapper
  */
-class BusinessList extends AbstractDbMapper
+class BusinessListMapper extends AbstractDbMapper
 {
     protected $table = 'businessList';
     protected $primary = 'businessListId';

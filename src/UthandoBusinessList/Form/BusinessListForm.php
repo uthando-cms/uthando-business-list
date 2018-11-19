@@ -11,7 +11,12 @@
 namespace UthandoBusinessList\Form;
 
 use TwbBundle\Form\View\Helper\TwbBundleForm;
+use UthandoUser\Form\Element\UserList;
 use Zend\Form\Element\Button;
+use Zend\Form\Element\Hidden;
+use Zend\Form\Element\Text;
+use Zend\Form\Element\Textarea;
+use Zend\Form\Element\Url;
 use Zend\Form\Form;
 
 /**
@@ -19,23 +24,23 @@ use Zend\Form\Form;
  *
  * @package UthandoBusinessList\Form
  */
-class BusinessList extends Form
+class BusinessListForm extends Form
 {
     public function init()
     {
         $this->add([
             'name' => 'businessListId',
-            'type' => 'hidden',
+            'type' => Hidden::class,
         ]);
 
         $this->add([
             'name' => 'slug',
-            'type' => 'hidden',
+            'type' => Hidden::class,
         ]);
 
         $this->add([
             'name' => 'userId',
-            'type' => 'UthandoUserList',
+            'type' => UserList::class,
             'options' => [
                 'label' => 'User',
                 'twb-layout' => TwbBundleForm::LAYOUT_HORIZONTAL,
@@ -48,7 +53,7 @@ class BusinessList extends Form
 
         $this->add([
             'name' => 'telephone',
-            'type' => 'text',
+            'type' => Text::class,
             'options' => [
                 'label' => 'Telephone',
                 'twb-layout' => TwbBundleForm::LAYOUT_HORIZONTAL,
@@ -64,7 +69,7 @@ class BusinessList extends Form
 
         $this->add([
             'name' => 'image',
-            'type' => 'text',
+            'type' => Text::class,
             'attributes' => [
                 'placehoder' => 'Image',
                 'id' => 'business-list-image',
@@ -84,7 +89,7 @@ class BusinessList extends Form
 
         $this->add([
             'name' => 'location',
-            'type' => 'text',
+            'type' => Text::class,
             'options' => [
                 'label' => 'Location',
                 'twb-layout' => TwbBundleForm::LAYOUT_HORIZONTAL,
@@ -100,7 +105,7 @@ class BusinessList extends Form
 
         $this->add([
             'name' => 'company',
-            'type' => 'text',
+            'type' => Text::class,
             'options' => [
                 'label' => 'Company',
                 'twb-layout' => TwbBundleForm::LAYOUT_HORIZONTAL,
@@ -116,7 +121,7 @@ class BusinessList extends Form
 
         $this->add([
             'name' => 'website',
-            'type' => 'Url',
+            'type' => Url::class,
             'options' => [
                 'label' => 'Website',
                 'twb-layout' => TwbBundleForm::LAYOUT_HORIZONTAL,
@@ -132,7 +137,7 @@ class BusinessList extends Form
 
         $this->add([
             'name' => 'sector',
-            'type' => 'text',
+            'type' => Text::class,
             'options' => [
                 'label' => 'Sector',
                 'twb-layout' => TwbBundleForm::LAYOUT_HORIZONTAL,
@@ -148,7 +153,7 @@ class BusinessList extends Form
 
         $this->add([
             'name' => 'text',
-            'type' => 'textarea',
+            'type' => Textarea::class,
             'options' => [
                 'label' => 'Text',
                 'twb-layout' => TwbBundleForm::LAYOUT_HORIZONTAL,

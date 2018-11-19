@@ -1,5 +1,7 @@
 <?php
 
+use UthandoBusinessList\Controller\BusinessListController;
+
 return [
     'router' => [
         'routes' => [
@@ -14,7 +16,7 @@ return [
                             ],
                             'defaults' => [
                                 '__NAMESPACE__' => 'UthandoBusinessList\Controller',
-                                'controller'    => 'BusinessList',
+                                'controller'    => BusinessListController::class,
                                 'action'        => 'index',
                             ],
                         ],

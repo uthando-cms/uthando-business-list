@@ -10,14 +10,20 @@
  */
 namespace UthandoBusinessList\InputFilter;
 
+use UthandoCommon\Filter\Slug;
+use UthandoCommon\Filter\Ucwords;
+use Zend\Filter\Digits;
+use Zend\Filter\StringTrim;
+use Zend\Filter\StripTags;
 use Zend\InputFilter\InputFilter;
+use Zend\Validator\StringLength;
 
 /**
  * Class BusinessList
  *
  * @package UthandoBusinessList\InputFilter
  */
-class BusinessList extends InputFilter
+class BusinessListInputFilter extends InputFilter
 {
     public function init()
     {
@@ -25,9 +31,9 @@ class BusinessList extends InputFilter
             'name' => 'businessListId',
             'required' => false,
             'filters' => [
-                ['name' => 'StripTags'],
-                ['name' => 'StringTrim'],
-                ['name' => 'Digits']
+                ['name' => StripTags::class],
+                ['name' => StringTrim::class],
+                ['name' => Digits::class]
             ],
         ]);
 
@@ -35,12 +41,12 @@ class BusinessList extends InputFilter
             'name' => 'slug',
             'required' => true,
             'filters' => [
-                ['name' => 'StripTags'],
-                ['name' => 'StringTrim'],
-                ['name' => 'UthandoSlug'],
+                ['name' => StripTags::class],
+                ['name' => StringTrim::class],
+                ['name' => Slug::class],
             ],
             'validators' => [
-                ['name' => 'StringLength', 'options' => [
+                ['name' => StringLength::class, 'options' => [
                     'encoding' => 'UTF-8',
                     'min' => 2,
                     'max' => 255
@@ -52,9 +58,9 @@ class BusinessList extends InputFilter
             'name' => 'userId',
             'required' => true,
             'filters' => [
-                ['name' => 'StripTags'],
-                ['name' => 'StringTrim'],
-                ['name' => 'Digits']
+                ['name' => StripTags::class],
+                ['name' => StringTrim::class],
+                ['name' => Digits::class]
             ],
         ]);
 
@@ -62,8 +68,8 @@ class BusinessList extends InputFilter
             'name' => 'telephone',
             'required' => false,
             'filters' => [
-                ['name' => 'StripTags'],
-                ['name' => 'StringTrim'],
+                ['name' => StripTags::class],
+                ['name' => StringTrim::class],
             ],
         ]);
 
@@ -71,8 +77,8 @@ class BusinessList extends InputFilter
             'name' => 'image',
             'required' => false,
             'filters' => [
-                ['name' => 'StripTags'],
-                ['name' => 'StringTrim'],
+                ['name' => StripTags::class],
+                ['name' => StringTrim::class],
             ],
         ]);
 
@@ -80,8 +86,8 @@ class BusinessList extends InputFilter
             'name' => 'location',
             'required' => false,
             'filters' => [
-                ['name' => 'StripTags'],
-                ['name' => 'StringTrim'],
+                ['name' => StripTags::class],
+                ['name' => StringTrim::class],
             ],
         ]);
 
@@ -89,8 +95,8 @@ class BusinessList extends InputFilter
             'name' => 'company',
             'required' => true,
             'filters' => [
-                ['name' => 'StripTags'],
-                ['name' => 'StringTrim'],
+                ['name' => StripTags::class],
+                ['name' => StringTrim::class],
             ],
         ]);
 
@@ -98,8 +104,8 @@ class BusinessList extends InputFilter
             'name' => 'website',
             'required' => false,
             'filters' => [
-                ['name' => 'StripTags'],
-                ['name' => 'StringTrim'],
+                ['name' => StripTags::class],
+                ['name' => StringTrim::class],
             ],
         ]);
 
@@ -107,9 +113,9 @@ class BusinessList extends InputFilter
             'name' => 'sector',
             'required' => false,
             'filters' => [
-                ['name' => 'StripTags'],
-                ['name' => 'StringTrim'],
-                ['name' => 'UthandoUcwords'],
+                ['name' => StripTags::class],
+                ['name' => StringTrim::class],
+                ['name' => Ucwords::class],
             ],
         ]);
 

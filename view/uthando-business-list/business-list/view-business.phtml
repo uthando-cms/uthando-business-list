@@ -1,4 +1,4 @@
-<?php if ($this->isAllowed('business-list:edit') && $this->model->getUserId() === $this->identity()->getUserId()):?>
+<?php if ($this->isAllowed('business-list:edit', null) && $this->model->getUserId() === $this->identity()->getUserId()):?>
     <a href="<?=$this->url('business/edit', [
         'business'    => $model->getSlug(),
     ]);?>" class="btn btn-default">Edit Profile</a>

@@ -11,8 +11,9 @@
 
 namespace UthandoBusinessList\Controller;
 
+use UthandoBusinessList\Service\BusinessListService;
 use UthandoCommon\Controller\AbstractCrudController;
-use UthandoBusinessList\Model\BusinessList as BusinessModel;
+use UthandoBusinessList\Model\BusinessListModel as BusinessModel;
 use Zend\Http\PhpEnvironment\Response;
 use Zend\View\Model\ViewModel;
 use Zend\Form\Form;
@@ -22,10 +23,10 @@ use Zend\Form\Form;
  *
  * @package UthandoBusinessList\Controller
  */
-class BusinessList extends AbstractCrudController
+class BusinessListController extends AbstractCrudController
 {
     protected $controllerSearchOverrides = array('sort' => 'company');
-    protected $serviceName = 'UthandoBusinessList';
+    protected $serviceName = BusinessListService::class;
     protected $route = 'admin/business-list';
     protected $routes = [];
 
